@@ -8,4 +8,4 @@
 TBD
 
 ## Backend repo
-You can see get to the backend repo [here](https://github.com/Altant457/CA-1-backend)
+You can get to the backend repo [here](https://github.com/Altant457/CA-1-backend)
