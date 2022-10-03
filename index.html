@@ -17,8 +17,8 @@
     <div class="outer">
       <div class="container" id="container">
           <input type="radio" name="s" id="person" checked onClick="changeText(id)">
-          <input type="radio" name="s" id="hobby" onClick="changeText(id)">
-          <input type="radio" name="s" id="phone" onClick="changeText(id)" >
+          <input type="radio" name="s" id="hobby" onClick="changeText(id)" >
+          <input type="radio" name="s" id="phone" onClick="changeText(id)">
           <input type="radio" name="s" id="address" onClick="changeText(id)">
           <input type="radio" name="s" id="zip" onClick="changeText(id)">
           <nav>
@@ -42,39 +42,18 @@
           <div class="searchBar">
             <div class="item1"></div>
               <input class="bar" id="bar" placeholder="Søg person"> 
-              <a>Search</a>
+              <a class="btn-search" onclick="test()">Search</a>
           </div>
           <h3>Found 3 items</h3>
 
         </div>
         <div class="resultList">
           <div class="listItemTop">
-            <p>navn</p>
+            <p>`${navn}`</p>
             <p>hobby</p>
             <p>phone</p>
             <p>address</p>
             <p>zip</p>
-          </div>
-          <div class="listItem">
-            <p>Sebastian</p>
-            <p>Fodbold</p>
-            <p>12345678</p>
-            <p>Zartmansvej 10</p>
-            <p>3700</p>
-          </div>
-          <div class="listItem">
-            <p>Sebastian</p>
-            <p>Fodbold</p>
-            <p>12345678</p>
-            <p>Zartmansvej 10</p>
-            <p>3700</p>
-          </div>
-          <div class="listItem">
-            <p>Sebastian</p>
-            <p>Fodbold</p>
-            <p>12345678</p>
-            <p>Zartmansvej 10</p>
-            <p>3700</p>
           </div>
           <div class="listItem">
             <p>Sebastian</p>
@@ -167,6 +146,7 @@
       </div>
       
     <script src="./App.js"></script>
+
 </body>
 </html>
 

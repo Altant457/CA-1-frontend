@@ -226,14 +226,13 @@ h3 {
 }
 
 .searchBar {
+    display: flex;
+    flex-direction: row;
     width: 700px;
     height: 80px;
     font-size: 30px;
     margin-top: 15px;
-    background-color:#f1c40f;
     z-index: 2;
-    justify-content: space-between;
-    cursor: pointer;
     border-radius: 50px;
 }
 .searchBar>input {
@@ -243,18 +242,22 @@ h3 {
     font-size: 25px;
     border: none;
     outline: none;
-    z-index: 3;
+    z-index: 2;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
 }
-.searchBar>a {
-    height: 80px;
-    width: auto;
+.btn-search {
+    width: 20%;
+    background-color:#f1c40f;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-radius: 50;
+    padding-top: 25px;
+    padding-left: 30px;
+    color: white;
+    text-decoration: none;
     font-size: 20px;
-    padding-left: 20px;
-    overflow: hidden;
-    z-index: 3;
-    color: white
-
-
+    font-weight: bolder;
+    cursor: pointer;
 }
+

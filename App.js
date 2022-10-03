@@ -1,7 +1,9 @@
- function changeText(element) {
-    document.getElementById("bar").placeholder=`Søg ${element}`
+
+  function addPhone() {
+  
   }
 
   function test () {
+    
     console.log("Hello");
   }
