@@ -1,3 +1,7 @@
+// function changeText(element) {
+//     document.getElementById("bar").placeholder = `Skriv ${element}`
+// }
+
 function changeText(element) {
     if (element === 'person') {
         document.getElementById("bar").placeholder = `Skriv fulde navn`
