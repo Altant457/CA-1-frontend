@@ -1,0 +1,260 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  
+}
+
+body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #9b59b6
+  
+}
+.container {
+    position: relative;
+    top: 150px;
+}
+
+nav {
+  width: 700px;
+  height: 60px;
+  border-radius: 30px;
+  display: flex;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 15px 25px -7px rgba(9, 136, 183, 0.2);
+  z-index: 2;
+  
+}
+@media (max-width: 700px) {
+  nav {
+    width: 100vw;
+    height: 60px;
+    border-radius: 0px;
+  }
+}
+nav::before {
+  content: "";
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  position: absolute;
+}
+nav label {
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 5px;
+  margin: 0 5px;
+  color: #27ae60;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+@media (max-width: 480px) {
+  nav label {
+    font-size: 14px;
+  }
+}
+@media (max-width: 370px) {
+  nav label {
+    margin: 0 14px;
+  }
+}
+nav label:hover {
+  color: #444;
+}
+nav label i {
+  margin-right: 4px;
+}
+nav .slider {
+  position: absolute;
+  height: 100%;
+  width: 20%;
+  background: #27ae60;
+  left: 0;
+  top: 0;
+  transition: 0.45s ease;
+  z-index: -1;
+}
+
+#person:checked ~ nav label.person {
+  color: #fff;
+}
+
+#hobby:checked ~ nav label.hobby {
+  color: #fff;
+}
+#hobby:checked ~ nav .slider {
+  left: 20%;
+}
+
+#phone:checked ~ nav label.phone {
+  color: #fff;
+}
+#phone:checked ~ nav .slider {
+  left: 40%;
+}
+
+#address:checked ~ nav label.address {
+  color: #fff;
+}
+#address:checked ~ nav .slider {
+  left: 60%;
+}
+
+#zip:checked ~ nav label.zip {
+  color: #fff;
+}
+#zip:checked ~ nav .slider {
+  left: 80%;
+}
+
+input[type=radio] {
+  display: none;
+}
+.searchBar>input {
+
+}
+
+.header>h1 {
+    position: absolute;
+    left: 7%;
+    top: 50px;
+    font-size: 50px;
+    color: white
+}
+.navItem {
+  position: absolute;
+  right: 7%;
+  top: 70px;
+  font-size: 10px;
+  color: white;
+  background: transparent;
+  height: 50px;
+  width: 200px;
+  border-radius: 50px;
+  border-color: transparent;
+  background-color: #27ae60;
+ 
+}
+.navItem:hover {
+  color: #27ae60;
+  background: white;
+}
+
+.resultList {
+    position: relative;
+    top: 200px;
+
+   
+    
+
+}
+
+h3 {
+    color: white;
+    font-size: 30px;
+    margin-top: 40px;
+    margin-bottom: -20px;
+}
+.listItem {
+    position: relative;
+    overflow: hidden;
+    justify-content: space-between;
+    display: flex;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    width: 700 !important;
+    flex-direction: row;
+    background-color: transparent;
+    height: 50px;
+    padding-bottom: 10px;
+    background-color: #fff;
+    align-items: center;
+    padding: 10px;
+}
+.listItemTop {
+    position: relative;
+    overflow: hidden;
+    justify-content: space-between;
+    display: flex;
+    width: 700 !important;
+    flex-direction: row;
+    background-color: transparent;
+    height: 50px;
+    font-size: 20px;
+    text-transform: uppercase;
+    background-color:#27ae60;
+    color: white;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.outer {
+    display: flex;
+    flex-direction: column;
+    column-gap: 1px;
+
+}
+.box-bottom {
+    margin-top: 200px;
+    display: flex;
+    margin-bottom: 50px;
+    
+}
+.btn-bottom {
+    margin-top: 30px;
+    height: 40px;
+    width: 200px;
+    background-color:#27ae60;
+    border-radius: 40px;
+    text-align: center;
+    padding-top: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.searchBar {
+    width: 700px;
+    height: 80px;
+    font-size: 30px;
+    margin-top: 15px;
+    background-color:#f1c40f;
+    z-index: 2;
+    justify-content: space-between;
+    cursor: pointer;
+    border-radius: 50px;
+}
+.searchBar>input {
+    height: 100%;
+    width: 80%;
+    padding-left: 30px;
+    font-size: 25px;
+    border: none;
+    outline: none;
+    z-index: 3;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+.searchBar>a {
+    height: 80px;
+    width: auto;
+    font-size: 20px;
+    padding-left: 20px;
+    overflow: hidden;
+    z-index: 3;
+    color: white
+
+
+}

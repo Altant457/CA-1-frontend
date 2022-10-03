@@ -1,19 +1,173 @@
-<!doctype html>
+<link rel="stylesheet" href="./style.css" >
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>CA-1</title>
-  <link
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-<body>
-  <h1>CA-1 project by group Bornholm B</h1>
+<body id="top">
+    <div class="header">
+        <h1>Born API</h1>
+    </div>
+    <button class="navItem">
+      <h1>Add profile</h1>
+    </button>
+    <div class="outer">
+      <div class="container" id="container">
+          <input type="radio" name="s" id="person" checked onClick="changeText(id)">
+          <input type="radio" name="s" id="hobby" onClick="changeText(id)">
+          <input type="radio" name="s" id="phone" onClick="changeText(id)" >
+          <input type="radio" name="s" id="address" onClick="changeText(id)">
+          <input type="radio" name="s" id="zip" onClick="changeText(id)">
+          <nav>
+            <div class="slider"></div>
+            <label class="person" for="person">
+              <i class="fas fa-home"></i>Person
+            </label>
+            <label class="hobby" for="hobby">
+              <i class="fas fa-blog"></i>Hobby
+            </label>
+            <label class="phone" for="phone">
+              <i class="fas fa-code"></i>Phone
+            </label>
+            <label class="address" for="address">
+              <i class="fas fa-envelope"></i>Address
+            </label>
+            <label class="zip" for="zip">
+              <i class="fas fa-user"></i>Zip
+            </label>
+          </nav>
+          <div class="searchBar">
+            <div class="item1"></div>
+              <input class="bar" id="bar" placeholder="Søg person"> 
+              <a>Search</a>
+          </div>
+          <h3>Found 3 items</h3>
+
+        </div>
+        <div class="resultList">
+          <div class="listItemTop">
+            <p>navn</p>
+            <p>hobby</p>
+            <p>phone</p>
+            <p>address</p>
+            <p>zip</p>
+          </div>
+          <div class="listItem">
+            <p>Sebastian</p>
+            <p>Fodbold</p>
+            <p>12345678</p>
+            <p>Zartmansvej 10</p>
+            <p>3700</p>
+          </div>
+          <div class="listItem">
+            <p>Sebastian</p>
+            <p>Fodbold</p>
+            <p>12345678</p>
+            <p>Zartmansvej 10</p>
+            <p>3700</p>
+          </div>
+          <div class="listItem">
+            <p>Sebastian</p>
+            <p>Fodbold</p>
+            <p>12345678</p>
+            <p>Zartmansvej 10</p>
+            <p>3700</p>
+          </div>
+          <div class="listItem">
+            <p>Sebastian</p>
+            <p>Fodbold</p>
+            <p>12345678</p>
+            <p>Zartmansvej 10</p>
+            <p>3700</p>
+          </div>
+          <div class="listItem">
+            <p>Sebastian</p>
+            <p>Fodbold</p>
+            <p>12345678</p>
+            <p>Zartmansvej 10</p>
+            <p>3700</p>
+          </div>
+          <div class="listItem">
+            <p>Sebastian</p>
+            <p>Fodbold</p>
+            <p>12345678</p>
+            <p>Zartmansvej 10</p>
+            <p>3700</p>
+          </div>
+          <div class="listItem">
+            <p>Sebastian</p>
+            <p>Fodbold</p>
+            <p>12345678</p>
+            <p>Zartmansvej 10</p>
+            <p>3700</p>
+          </div>
+          <div class="listItem">
+            <p>Sebastian</p>
+            <p>Fodbold</p>
+            <p>12345678</p>
+            <p>Zartmansvej 10</p>
+            <p>3700</p>
+          </div>
+          <div class="listItem">
+            <p>Sebastian</p>
+            <p>Fodbold</p>
+            <p>12345678</p>
+            <p>Zartmansvej 10</p>
+            <p>3700</p>
+          </div>
+          <div class="listItem">
+            <p>Sebastian</p>
+            <p>Fodbold</p>
+            <p>12345678</p>
+            <p>Zartmansvej 10</p>
+            <p>3700</p>
+          </div>
+          <div class="listItem">
+            <p>Sebastian</p>
+            <p>Fodbold</p>
+            <p>12345678</p>
+            <p>Zartmansvej 10</p>
+            <p>3700</p>
+          </div>
+          <div class="listItem">
+            <p>Sebastian</p>
+            <p>Fodbold</p>
+            <p>12345678</p>
+            <p>Zartmansvej 10</p>
+            <p>3700</p>
+          </div>
+          <div class="listItem">
+            <p>Sebastian</p>
+            <p>Fodbold</p>
+            <p>12345678</p>
+            <p>Zartmansvej 10</p>
+            <p>3700</p>
+          </div>
+          <div class="listItem">
+            <p>Sebastian</p>
+            <p>Fodbold</p>
+            <p>12345678</p>
+            <p>Zartmansvej 10</p>
+            <p>3700</p>
+          </div>
+          <div class="listItem">
+            <p>Sebastian</p>
+            <p>Fodbold</p>
+            <p>12345678</p>
+            <p>Zartmansvej 10</p>
+            <p>3700</p>
+          </div>
+        </div>
+        <div class="box-bottom">
+          <a href="#top" class="btn-bottom">return to top</a>
+        </div>
+      </div>
+      
+    <script src="./App.js"></script>
 </body>
 </html>
+
+
