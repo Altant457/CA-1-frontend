@@ -16,6 +16,7 @@ const showPersonList = (number) => {
         } else {
             hobbyString = "No hobbies"
         }
+
         console.log(data)
         document.querySelector("#userList").innerHTML =
             `
@@ -24,12 +25,13 @@ const showPersonList = (number) => {
                 <div class="content">
                     <p>Fulde navn:${data["firstName"]} ${data["lastName"]}</p>
                     <p>Hobbyer:${hobbyString}</p>
-                    <p>Telefon nr:</p>
+                    <p>Telefon nr: ${data["phones"][0]["number"]}</p>
                     <p>Adresse:${data["fullAddress"]["street"] + ", " + data["fullAddress"]["cityInfo"]["city"]}</p>
-                    <p>Zip:</p>
+                    <p>Zip: ${data["fullAddress"]["cityInfo"]["zipCode"]}</p>
                 </div>
             </div>
             `
+        updateCollapsibles()
     })
     .catch(err => {
 
@@ -41,21 +43,36 @@ const showPersonList = (number) => {
         }
     })
 }
-/* Metode til at folde person menu ud*/
-var coll = document.getElementsByClassName("collapsible");
-    var i;
 
-    for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
+const updateCollapsibles = () => {
+    document.querySelectorAll(".collapsible").forEach(element => {
+        element.addEventListener('click', function() {
+            this.classList.toggle("active");
+            let content = this.nextElementSibling;
+            if(content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    });
+};
+/* Metode til at folde person menu ud*/
+// var coll = document.getElementsByClassName("collapsible");
+//     var i;
+//
+// for (i = 0; i < coll.length; i++) {
+//     coll[i].addEventListener("click", function() {
+//         console.log(this);
+//         this.classList.toggle("active");
+//         var content = this.nextElementSibling;
+//         if (content.style.display === "block") {
+//             content.style.display = "none";
+//         } else {
+//             content.style.display = "block";
+//         }
+//     });
+// }
 
 
 const checkedRadio = () => {
@@ -70,3 +87,5 @@ document.querySelector("#btnSearch").addEventListener('click', () => {
         showPersonList(number)
     }
 })
+
+updateCollapsibles()
