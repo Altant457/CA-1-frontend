@@ -2,25 +2,31 @@ import "./personFacade.js"
 import personFacade from "./personFacade.js"
 
 const showPersonList = () => {
-    console.log(personFacade.getUsers())
-    personFacade.getUsers()
-    .then (users => {
-    
-        document.querySelector("#userList").innerHTML = users.all.map(user =>
+    // console.log(personFacade.getUserByPhone("12345678"))
+    personFacade.getUserByPhone("12345678")
+    .then (data => {
+        console.log(data)
+        document.querySelector("#userList").innerHTML =
             `
-            <tr>
-                <td>${user["id"]}</td>
-                <td>${user["firstName"]}</td>
-                <td>${user["lastName"]}</td>
-                <td>${user["phone"]}</td>
-            </tr>
-            `
-            ).join("")
+            <p>ID: ${data["id"]}</p>
+            <p>First name: ${data["firstName"]}</p>
+            <p>Last name: ${data["lastName"]}</p>
+            <p>Address: ${data["fullAddress"]["street"] + data["fullAddress"]["cityInfo"]["city"]}</p>
+            <p>Hobbies:</p>
+            ${data["hobbies"].map(hobby => 
+                `
+                <p>ID: ${hobby["id"]}</p>
+                <p>Name: ${hobby["name"]}</p>
+                <p>Wikilink: ${hobby["wikiLink"]}</p>
+                <hr />
+                `).join("")
+        }
+            `;
     })
     .catch(err => {
 
         if(err.status) {
-            err.fullErrror.then(e => console.log(e.msg))
+            err.fullError.then(e => console.log(e.msg))
             
         } else {
             console.log("Network error")
