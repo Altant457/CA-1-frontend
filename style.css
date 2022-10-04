@@ -279,7 +279,7 @@ h3 {
 
 }
 
-  .collapsible {
+.collapsible {
     background-color: white;
     color: #444;
     cursor: pointer;
@@ -289,6 +289,7 @@ h3 {
     text-align: left;
     outline: none;
     font-size: 20px;
+    text-transform: capitalize;
   }
 
   .active, .collapsible:hover {
@@ -297,8 +298,9 @@ h3 {
 
 .content {
     padding-top: 10px !important;
+    padding-bottom: 10px !important;
     padding: 0 15px;
-    height: 140px;
+    height: auto;
     display: none;
     overflow: hidden;
     background-color: #f1f1f1;

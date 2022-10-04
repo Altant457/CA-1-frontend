@@ -18,14 +18,18 @@ const showPersonList = (number) => {
         }
         console.log(data)
         document.querySelector("#userList").innerHTML =
-            `<div class="">
-            <p class="jesus">ID: ${data["id"]}</p>
-            <p>First name: ${data["firstName"]}</p>
-            <p>Last name: ${data["lastName"]}</p>
-            <p>Address: ${data["fullAddress"]["street"] + ", " + data["fullAddress"]["cityInfo"]["city"]}</p>
-            <p>Hobbies:</p>
-            ${hobbyString}
-            </div>`;
+            `
+            <div class="userBox">
+                <button type="button" class="collapsible" ><b>ID#${data["id"]}</b> - ${data["firstName"]} ${data["lastName"]}</button>
+                <div class="content">
+                    <p>Fulde navn:${data["firstName"]} ${data["lastName"]}</p>
+                    <p>Hobbyer:${hobbyString}</p>
+                    <p>Telefon nr:</p>
+                    <p>Adresse:${data["fullAddress"]["street"] + ", " + data["fullAddress"]["cityInfo"]["city"]}</p>
+                    <p>Zip:</p>
+                </div>
+            </div>
+            `
     })
     .catch(err => {
 
@@ -37,6 +41,22 @@ const showPersonList = (number) => {
         }
     })
 }
+/* Metode til at folde person menu ud*/
+var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+
 
 const checkedRadio = () => {
     let checkedCommand = document.querySelector('input[name = "s"]:checked')
