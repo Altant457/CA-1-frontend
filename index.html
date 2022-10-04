@@ -50,45 +50,32 @@
               <input class="bar" id="bar" placeholder="Skriv fulde navn"> 
               <a class="btn-search" id="btnSearch" onclick="test()">Search</a>
           </div>
-          <h3>Found 3 items</h3>
+          
+           <!-- Loader symbol mens data fetches fra database -->
+          <div class="preload">
+              <label>Loading data ...</label><div class="emoji">🕐</div>
+          </div> 
+          
+          <div id="foundItems">
+             <!-- Her indsættes antal data hentet-->
+          </div>
+
+      
+        </div>
+      
+
+        <div class="resultList" id="userList">
+
+           <!-- Her indsættes person data -->
 
         </div>
-        <div class="resultList" id="userList">
-          <div class="userBox">
-            <button type="button" class="collapsible"><b>ID#4</b> - Sebastian Larvad</button>
-            <div class="content">
-              <p>Fulde navn:</p>
-              <p>Hobbyer:</p>
-              <p>Telefon nr:</p>
-              <p>Adresse:</p>
-              <p>Zip:</p>
-            </div>
-          </div>
-          <div class="userBox">
-            <button type="button" class="collapsible"><b>ID#4</b> - Sebastian Larvad</button>
-            <div class="content">
-              <p>Fulde navn:</p>
-              <p>Hobbyer:</p>
-              <p>Telefon nr:</p>
-              <p>Adresse:</p>
-              <p>Zip:</p>
-            </div>
-          </div>
-          <div class="userBox">
-            <button type="button" class="collapsible"><b>ID#4</b> - Sebastian Larvad</button>
-            <div class="content">
-              <p>Fulde navn:</p>
-              <p>Hobbyer:</p>
-              <p>Telefon nr:</p>
-              <p>Adresse:</p>
-              <p>Zip:</p>
-            </div>
-          </div>
-        </div>
+
+
         <div class="box-bottom">
-          <a href="#" class="btn-bottom">return to top</a>
+          <a href="#" class="btn-bottom">Get up ⇧</a>
         </div>
       </div>
+
       
     <!-- <script src="./App.js"></script> -->
     <script> var exports = {}; </script>
