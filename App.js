@@ -1,6 +1,7 @@
-// function changeText(element) {
-//     document.getElementById("bar").placeholder = `Skriv ${element}`
-// }
+function change2() {
+    const name = document.querySelector("s");
+    if (name === "person") {}
+}
 
 function changeText(element) {
     if (element === 'person') {
@@ -19,9 +20,8 @@ function changeText(element) {
 
 
 
-function test(callback) {
-  let element = document.getElementById()
-  const send = callback(element)
+function test() {
+  const send = change2()
   console.log(send);
 }
 

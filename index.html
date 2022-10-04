@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="./index.js"></script>
+    <script type="module" src="./personFacade.js"></script>
+
     <title>Document</title>
 </head>
 <body id="top">
@@ -42,103 +45,19 @@
           <div class="searchBar">
             <div class="item1"></div>
               <input class="bar" id="bar" placeholder="Skriv fulde navn"> 
-              <a class="btn-search" onclick="test(changeText(id))">Search</a>
+              <a class="btn-search" onclick="test()">Search</a>
           </div>
           <h3>Found 3 items</h3>
 
         </div>
-        <div class="resultList">
-          <div class="listItemTop">
-            <p>`${navn}`</p>
+        <div class="resultList" id="userList">
+          <!-- <div class="listItemTop">
+            <p>navn</p>
             <p>hobby</p>
             <p>phone</p>
             <p>address</p>
             <p>zip</p>
-          </div>
-          <div class="listItem">
-            <p>Sebastian</p>
-            <p>Fodbold</p>
-            <p>12345678</p>
-            <p>Zartmansvej 10</p>
-            <p>3700</p>
-          </div>
-          <div class="listItem">
-            <p>Sebastian</p>
-            <p>Fodbold</p>
-            <p>12345678</p>
-            <p>Zartmansvej 10</p>
-            <p>3700</p>
-          </div>
-          <div class="listItem">
-            <p>Sebastian</p>
-            <p>Fodbold</p>
-            <p>12345678</p>
-            <p>Zartmansvej 10</p>
-            <p>3700</p>
-          </div>
-          <div class="listItem">
-            <p>Sebastian</p>
-            <p>Fodbold</p>
-            <p>12345678</p>
-            <p>Zartmansvej 10</p>
-            <p>3700</p>
-          </div>
-          <div class="listItem">
-            <p>Sebastian</p>
-            <p>Fodbold</p>
-            <p>12345678</p>
-            <p>Zartmansvej 10</p>
-            <p>3700</p>
-          </div>
-          <div class="listItem">
-            <p>Sebastian</p>
-            <p>Fodbold</p>
-            <p>12345678</p>
-            <p>Zartmansvej 10</p>
-            <p>3700</p>
-          </div>
-          <div class="listItem">
-            <p>Sebastian</p>
-            <p>Fodbold</p>
-            <p>12345678</p>
-            <p>Zartmansvej 10</p>
-            <p>3700</p>
-          </div>
-          <div class="listItem">
-            <p>Sebastian</p>
-            <p>Fodbold</p>
-            <p>12345678</p>
-            <p>Zartmansvej 10</p>
-            <p>3700</p>
-          </div>
-          <div class="listItem">
-            <p>Sebastian</p>
-            <p>Fodbold</p>
-            <p>12345678</p>
-            <p>Zartmansvej 10</p>
-            <p>3700</p>
-          </div>
-          <div class="listItem">
-            <p>Sebastian</p>
-            <p>Fodbold</p>
-            <p>12345678</p>
-            <p>Zartmansvej 10</p>
-            <p>3700</p>
-          </div>
-          <div class="listItem">
-            <p>Sebastian</p>
-            <p>Fodbold</p>
-            <p>12345678</p>
-            <p>Zartmansvej 10</p>
-            <p>3700</p>
-          </div>
-          <div class="listItem">
-            <p>Sebastian</p>
-            <p>Fodbold</p>
-            <p>12345678</p>
-            <p>Zartmansvej 10</p>
-            <p>3700</p>
-          </div>
+          </div> -->
         </div>
         <div class="box-bottom">
           <a href="#top" class="btn-bottom">return to top</a>
@@ -147,7 +66,9 @@
       
     <script src="./App.js"></script>
 
-</body>
-</html>
+  </body>
+  
+  </html>
+
 
 

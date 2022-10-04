@@ -6,8 +6,22 @@ function getUsers () {
     .then(handleHttpErrors)
 }
 
+function addUser() {
+    const options = makeOptions("POST", user)
+    return fetch (URL, options)
+    .then(handleHttpErrors)
+}
 
+function editUser(user, id) {
+    const options = makeOptions("PUT", user)
+    return fetch (`${URL}${id}`, options)
+    .then(handleHttpErrors)
+}
+function deleteUser(id) {
+    const options = makeOptions("DELETE")
+    return fetch (`${URL}${id}`, options)
 
+}
 
 const handleHttpErrors = (response) => {
     if(!response.ok) {
@@ -29,3 +43,5 @@ const makeOptions = (method, body) => {
     }
     return opts
 }
+
+export default personFacade;
