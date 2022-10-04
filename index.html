@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="./style.css" >
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    <link rel="stylesheet" href="./style.css" >
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,13 +11,15 @@
 
     <title>Document</title>
 </head>
-<body id="top">
+<body>
+ 
     <div class="header">
         <h1>Born API</h1>
     </div>
     <button class="navItem">
       <h1>Add profile</h1>
     </button>
+    
     <div class="outer">
       <div class="container" id="container">
           <input type="radio" name="s" id="person" value="person" checked onClick="changeText(id)">
@@ -52,16 +54,39 @@
 
         </div>
         <div class="resultList" id="userList">
-          <!-- <div class="listItemTop">
-            <p>navn</p>
-            <p>hobby</p>
-            <p>phone</p>
-            <p>address</p>
-            <p>zip</p>
-          </div> -->
+          <div class="userBox">
+            <button type="button" class="collapsible"><b>ID#4</b> - Sebastian Larvad</button>
+            <div class="content">
+              <p>Fulde navn:</p>
+              <p>Hobbyer:</p>
+              <p>Telefon nr:</p>
+              <p>Adresse:</p>
+              <p>Zip:</p>
+            </div>
+          </div>
+          <div class="userBox">
+            <button type="button" class="collapsible"><b>ID#4</b> - Sebastian Larvad</button>
+            <div class="content">
+              <p>Fulde navn:</p>
+              <p>Hobbyer:</p>
+              <p>Telefon nr:</p>
+              <p>Adresse:</p>
+              <p>Zip:</p>
+            </div>
+          </div>
+          <div class="userBox">
+            <button type="button" class="collapsible"><b>ID#4</b> - Sebastian Larvad</button>
+            <div class="content">
+              <p>Fulde navn:</p>
+              <p>Hobbyer:</p>
+              <p>Telefon nr:</p>
+              <p>Adresse:</p>
+              <p>Zip:</p>
+            </div>
+          </div>
         </div>
         <div class="box-bottom">
-          <a href="#top" class="btn-bottom">return to top</a>
+          <a href="#" class="btn-bottom">return to top</a>
         </div>
       </div>
       

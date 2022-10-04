@@ -1,5 +1,6 @@
 import "./personFacade.js"
 import personFacade from "./personFacade.js"
+import "./style.css"
 
 const showPersonList = (number) => {
     // console.log(personFacade.getUserByPhone("12345678"))
@@ -18,7 +19,7 @@ const showPersonList = (number) => {
         console.log(data)
         document.querySelector("#userList").innerHTML =
             `<div class="">
-            <p>ID: ${data["id"]}</p>
+            <p class="jesus">ID: ${data["id"]}</p>
             <p>First name: ${data["firstName"]}</p>
             <p>Last name: ${data["lastName"]}</p>
             <p>Address: ${data["fullAddress"]["street"] + ", " + data["fullAddress"]["cityInfo"]["city"]}</p>
