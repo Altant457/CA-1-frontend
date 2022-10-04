@@ -43,5 +43,14 @@ const makeOptions = (method, body) => {
     }
     return opts
 }
+const personFacade = {
+    getUsers,
+    addUser,
+    editUser,
+    deleteUser
 
+};
+
+
+console.log("slutningen af personFacade")
 export default personFacade;
