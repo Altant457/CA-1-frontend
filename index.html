@@ -20,11 +20,11 @@
     </button>
     <div class="outer">
       <div class="container" id="container">
-          <input type="radio" name="s" id="person" checked onClick="changeText(id)">
-          <input type="radio" name="s" id="hobby" onClick="changeText(id)" >
-          <input type="radio" name="s" id="phone" onClick="changeText(id)">
-          <input type="radio" name="s" id="address" onClick="changeText(id)">
-          <input type="radio" name="s" id="zip" onClick="changeText(id)">
+          <input type="radio" name="s" id="person" value="person" checked onClick="changeText(id)">
+          <input type="radio" name="s" id="hobby" value="hobby" onClick="changeText(id)" >
+          <input type="radio" name="s" id="phone" value="phone" onClick="changeText(id)">
+          <input type="radio" name="s" id="address" value="address" onClick="changeText(id)">
+          <input type="radio" name="s" id="zip" value="zip" onClick="changeText(id)">
           <nav>
             <div class="slider"></div>
             <label class="person" for="person">
@@ -46,7 +46,7 @@
           <div class="searchBar">
             <div class="item1"></div>
               <input class="bar" id="bar" placeholder="Skriv fulde navn"> 
-              <a class="btn-search" onclick="test()">Search</a>
+              <a class="btn-search" id="btnSearch" onclick="test()">Search</a>
           </div>
           <h3>Found 3 items</h3>
 

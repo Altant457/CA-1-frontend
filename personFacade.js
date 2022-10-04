@@ -6,7 +6,7 @@ function getUserByPhone (number) {
     .then(handleHttpErrors)
 }
 
-function addUser() {
+function addUser(user) {
     const options = makeOptions("POST", user)
     return fetch (URL, options)
     .then(handleHttpErrors)
