@@ -2,37 +2,69 @@ import "./personFacade.js"
 import personFacade from "./personFacade.js"
 import "./style.css"
 
-const showPersonList = (number) => {
+const showPerson = (input) => {
     // console.log(personFacade.getUserByPhone("12345678"))
-    personFacade.getUserByPhone(number)
+    
+    personFacade.getUserByPhone(input)
     .then (data => {
-        let hobbyString
-        if (data["hobbies"].length > 0) {
-            hobbyString = data["hobbies"].map(hobby => `
-                <p>ID: ${hobby["id"]}</p>
-                <p>Name: ${hobby["name"]}</p>
-                <p>Wikilink: ${hobby["wikiLink"]}</p>
-                `).join("<hr />")
-        } else {
-            hobbyString = "No hobbies"
-        }
+        displayUser(data)}
 
-        console.log(data)
-        document.querySelector("#userList").innerHTML =
-            `
-            <div class="userBox">
-                <button type="button" class="collapsible" ><b>ID#${data["id"]}</b> - ${data["firstName"]} ${data["lastName"]}</button>
-                <div class="content">
-                    <p>Fulde navn:${data["firstName"]} ${data["lastName"]}</p>
-                    <p>Hobbyer:${hobbyString}</p>
-                    <p>Telefon nr: ${data["phones"][0]["number"]}</p>
-                    <p>Adresse:${data["fullAddress"]["street"] + ", " + data["fullAddress"]["cityInfo"]["city"]}</p>
-                    <p>Zip: ${data["fullAddress"]["cityInfo"]["zipCode"]}</p>
-                </div>
-            </div>
-            `
-        updateCollapsibles()
+        )
+    .catch(err => {
+
+        if(err.status) {
+            err.fullError.then(e => console.log(e.msg))
+            
+        } else {
+            console.log("Network error")
+        }
     })
+}
+
+function displayUser(data){
+    let hobbyString
+    if (data["hobbies"].length > 0) {
+        hobbyString = data["hobbies"].map(hobby => `
+            <p>ID: ${hobby["id"]}</p>
+            <p>Name: ${hobby["name"]}</p>
+            <p>Wikilink: ${hobby["wikiLink"]}</p>
+            `).join("<hr />")
+    } else {
+        hobbyString = "No hobbies"
+    }
+
+    console.log(data)
+    document.querySelector("#userList").innerHTML =
+        `
+        <div class="userBox">
+            <button type="button" class="collapsible" ><b>ID#${data["id"]}</b> - ${data["firstName"]} ${data["lastName"]}</button>
+            <div class="content">
+                <p>Fulde navn:${data["firstName"]} ${data["lastName"]}</p>
+                <p>Hobbyer:${hobbyString}</p>
+                <p>Telefon nr: ${data["phones"][0]["number"]}</p>
+                <p>Adresse:${data["fullAddress"]["street"] + ", " + data["fullAddress"]["cityInfo"]["city"]}</p>
+                <p>Zip: ${data["fullAddress"]["cityInfo"]["zipCode"]}</p>
+            </div>
+        </div>
+        `
+    updateCollapsibles()
+}
+
+function showPersonList(hobbyName){
+    
+
+personFacade.getUserByHobby(hobbyName)
+.then(dataList => { 
+    console.log(dataList)
+    console.log(dataList)
+    // const usersString = dataList.map(user => `${user}`).join("");
+    // console.log(usersString)
+
+
+//     let allJokesAsList = allJokes.map(joke => `<li>${joke}</li>`);
+// let allJokesHTMLList = allJokesAsList.join("");
+})
+
     .catch(err => {
 
         if(err.status) {
@@ -84,7 +116,11 @@ document.querySelector("#btnSearch").addEventListener('click', () => {
     let command = checkedRadio()
     if (command === "phone") {
         let number = document.querySelector("#bar").value
-        showPersonList(number)
+        showPerson(number)
+    }
+    if (command === "hobby") {
+        let hobbyName = document.querySelector("#bar").value
+        showPersonList(hobbyName)
     }
 })
 

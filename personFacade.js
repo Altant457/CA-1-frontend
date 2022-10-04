@@ -5,6 +5,11 @@ function getUserByPhone (number) {
     return fetch(URL + "person/phone/" + number, options)
     .then(handleHttpErrors)
 }
+function getUserByHobby (hobbyName) {
+    const options = makeOptions("GET")
+    return fetch(URL + "person/hobby/" + hobbyName, options)
+    .then(handleHttpErrors)
+}
 
 function addUser(user) {
     const options = makeOptions("POST", user)
@@ -45,6 +50,7 @@ const makeOptions = (method, body) => {
 }
 const personFacade = {
     getUserByPhone,
+    getUserByHobby,
     addUser,
     editUser,
     deleteUser
