@@ -50,19 +50,39 @@ function displayUser(data){
     updateCollapsibles()
 }
 
+
+function displaySimpleUser(data){
+    
+    const userHTML = 
+    `
+    <div class="userBox">
+        <button type="button" class="collapsible" ><b>ID#${data["id"]}</b> - ${data["firstName"]} ${data["lastName"]}</button>
+        <div class="content">
+            <p>Fulde navn:${data["firstName"]} ${data["lastName"]}</p>
+            
+        </div>
+    </div>
+    `;
+    return userHTML;
+
+
+} 
 function showPersonList(hobbyName){
     
+
+
 
 personFacade.getUserByHobby(hobbyName)
 .then(dataList => { 
     console.log(dataList)
-    console.log(dataList)
-    // const usersString = dataList.map(user => `${user}`).join("");
-    // console.log(usersString)
+    // console.log(dataList)
+    // const usersString = dataList.map(data => userHTML(data)).join("");
+    const usersString = dataList["all"].map(person => `${["firstName"]} ${["lastName"]} `).join("");
+    console.log(usersString)
+
+   
 
 
-//     let allJokesAsList = allJokes.map(joke => `<li>${joke}</li>`);
-// let allJokesHTMLList = allJokesAsList.join("");
 })
 
     .catch(err => {
