@@ -1,8 +1,8 @@
 const URL = "https://altantthewired.me/tomcat/CA1/api/ca1/";
 
-function getUsers () {
+function getUserByNumber (number) {
     const options = makeOptions("GET")
-    return fetch(URL, options)
+    return fetch(URL + "persons/phone/" + number, options)
     .then(handleHttpErrors)
 }
 
@@ -42,6 +42,13 @@ const makeOptions = (method, body) => {
         opts.body = JSON.stringify(body)
     }
     return opts
+}
+
+const personFacade = {
+    getUserByNumber,
+    addUser,
+    editUser,
+    deleteUser
 }
 
 export default personFacade;
