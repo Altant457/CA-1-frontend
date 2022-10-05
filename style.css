@@ -338,14 +338,18 @@ h3 {
     margin-top: 20px;
   }
   .preload label {
-    display: flex;
     color: white;
     font-size: 20px;
     font-weight: bold;
   }
   .emoji {
-    display: flex;
+
     font-size: 20px;
+  }
+  hr {
+
+    margin: 3gpx;
+
   }
 
 

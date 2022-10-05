@@ -39,7 +39,7 @@ const showPersonList = (number) => {
         document.querySelector(".preload").style.display = "none"
         document.querySelector("#foundItems").innerHTML =
         `<h3>Fandt 1 resultat<h3>`
-        
+
     })
     .catch(err => {
 
