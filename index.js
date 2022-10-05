@@ -128,6 +128,11 @@ const init = () => {
 }
 init();
 
-
+document.querySelector("#profile").addEventListener('click', (event)  => {
+//const addProfile = () => {
+    document.querySelector("#title").innerHTML = '<h1>hej</h1>'
+        console.log("hej")
+}
+)
 
 
