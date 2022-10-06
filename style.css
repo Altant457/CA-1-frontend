@@ -559,7 +559,9 @@ h3 {
 @media (max-width: 1400px) {
   .copyRights {
     opacity: 0 !important;
-
+  }
+  .requestMade {
+    opacity: 0;
   }
 
 }
