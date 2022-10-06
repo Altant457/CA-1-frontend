@@ -299,7 +299,6 @@ document.querySelector("#createProfile").addEventListener('click', () => {
 
 // document.querySelector("#newHobby").addEventListener("change", function () {
 //     getHobbyData(this.options[this.selectedIndex].id)
-// })
 
 const getHobbyData = (id = 1) => {
     personFacade.getHobbyData(id)

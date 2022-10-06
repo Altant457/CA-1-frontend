@@ -39,6 +39,7 @@ nav {
     border-radius: 0px;
   }
 }
+
 nav::before {
   content: "";
   background: #130f40;
@@ -224,7 +225,7 @@ h3 {
 .box-bottom {
     margin-top: 200px;
     display: flex;
-    margin-bottom: 50px;
+    margin-bottom: 150px;
     
 }
 .btn-bottom {
@@ -292,12 +293,13 @@ h3 {
     background-color: white;
     color: #444;
     cursor: pointer;
-    padding: 18px;
+    padding: 20px;
     width: 100%;
     border: none;
     text-align: left;
     outline: none;
     font-size: 20px;
+    margin-bottom: -10px;
     text-transform: capitalize;
   }
 
@@ -524,5 +526,75 @@ h3 {
   }
 }
 
+.requestMade {
+  border: solid 1px white;
+  position: fixed;
+  height: 450px;
+  width: 250px;
+  bottom: 140px;
+  left: 90px;
+}
+.requestMade h2 {
+  color: white;
+  text-align: center;
+  margin: 10px 0
+}
+
+.hobbyItem {
+  background-color: white;
+  border: solid 4px #130f40;
+  height: 50px;
+  width: 248px;
+  margin-bottom: 2px;
+}
+.copyRights {
+  position: fixed;
+  bottom: 40px;
+  left: 50px;
+  color: white;
+  font-size: 12px;
+  opacity: 0.7;
+
+}
+@media (max-width: 1400px) {
+  .copyRights {
+    opacity: 0 !important;
+  }
+  .requestMade {
+    opacity: 0;
+  }
+
+}
+.gotopbtn
+{
+  position: fixed;
+  width: 70px;
+  height: 70px;
+  background: #be2edd;
+  bottom: 40px;
+  right: 100px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 60px;
+  color: white;
+  padding-top: 10px;
+  font-size: 40px;
+  -webkit-transition: all .7s ease;
+  transition: all .7s ease;
+}
+.gotopbtn:hover {
+  background: #f1c40f;
+
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
 
 
