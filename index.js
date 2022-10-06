@@ -263,8 +263,12 @@ document.querySelector("#createProfile").addEventListener('click', () => {
     // console.log(additionalInfo)
     let newZip = document.querySelector("#newZip").value
     // console.log(newZip)
-    let newHobby = document.querySelector("#newHobby").value
-    // console.log(newHobby)
+    let newHobbys = []
+    document.querySelectorAll(".hobbyList").forEach(element => {
+        if (element.value !== "false") {
+            newHobbys.push(element.options[element.selectedIndex].id)
+        }
+    })
 
     let user =
         {
@@ -282,15 +286,13 @@ document.querySelector("#createProfile").addEventListener('click', () => {
                 "additionalInfo": additionalInfo
             }
         }
-    if (newHobby !== "false") {
+    if (newHobbys.length > 0) {
         personFacade.getCity(newZip)
             .then(city => {
                 user.fullAddress.cityInfo = city
-                let ddb = document.querySelector("#newHobby")
-                let hobbyID = ddb.options[ddb.selectedIndex].id
-                personFacade.getHobbyData(hobbyID)
+                personFacade.getHobbyData(newHobbys)
                     .then(hobby => {
-                        user.hobbies = [hobby]
+                        user.hobbies = hobby
                         personFacade.addUser(user).then(() => {
                             alert("Brugeren er oprettet")
                         })

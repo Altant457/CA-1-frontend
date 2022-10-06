@@ -40,9 +40,9 @@ function getCity(zipCode) {
         .then(handleHttpErrors)
 }
 
-function getHobbyData(id) {
-    const options = makeOptions("GET")
-    return fetch(URL + "hobby/id/" + id, options)
+function getHobbyData(ids) {
+    const options = makeOptions("POST", ids)
+    return fetch(URL + "hobby/id/", options)
         .then(handleHttpErrors)
 }
 
