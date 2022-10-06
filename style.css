@@ -292,12 +292,13 @@ h3 {
     background-color: white;
     color: #444;
     cursor: pointer;
-    padding: 18px;
+    padding: 20px;
     width: 100%;
     border: none;
     text-align: left;
     outline: none;
     font-size: 20px;
+    margin-bottom: -10px;
     text-transform: capitalize;
   }
 
@@ -523,6 +524,36 @@ h3 {
     background-position: 200% 50%;
   }
 }
+.gotopbtn
+{
+  position: fixed;
+  width: 70px;
+  height: 70px;
+  background: #be2edd;
+  bottom: 40px;
+  right: 100px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 60px;
+  color: white;
+  padding-top: 10px;
+  font-size: 40px;
+  -webkit-transition: all .7s ease;
+  transition: all .7s ease;
+}
+.gotopbtn:hover {
+  background: #f1c40f;
 
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
 
 
