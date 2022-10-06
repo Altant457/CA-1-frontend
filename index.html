@@ -27,11 +27,11 @@
 
     <div class="outer" id="outer" style="display: none">
         <div class="container" id="container">
-            <input type="radio" name="s" id="person" value="person" checked onClick="changeText(id)">
-            <input type="radio" name="s" id="hobby" value="hobby" onClick="changeText(id)">
-            <input type="radio" name="s" id="phone" value="phone" onClick="changeText(id)">
-            <input type="radio" name="s" id="address" value="address" onClick="changeText(id)">
-            <input type="radio" name="s" id="zip" value="zip" onClick="changeText(id)">
+            <input type="radio" name="s" id="person" value="person" checked>
+            <input type="radio" name="s" id="hobby" value="hobby">
+            <input type="radio" name="s" id="phone" value="phone">
+            <input type="radio" name="s" id="address" value="address">
+            <input type="radio" name="s" id="zip" value="zip">
             <nav>
                 <div class="slider"></div>
                 <label class="person" for="person">
@@ -53,7 +53,7 @@
             <div class="searchBar">
                 <div class="item1"></div>
                 <input class="bar" id="bar" placeholder="Skriv fulde navn">
-                <a class="btn-search" id="btnSearch" onclick="test()">Search</a>
+                <a class="btn-search" id="btnSearch">Search</a>
             </div>
 
             <!-- Loader symbol mens data fetches fra database -->
@@ -81,12 +81,12 @@
             <br><br><br>
             <input id="fName" placeholder="Fornavn">
             <input id="lName" placeholder="Efternavn">
-            <input id="phone" placeholder="Telefonnunmmer">
+            <input id="newPhone" placeholder="Telefonnunmmer">
             <input id="phoneDescription" placeholder="Telefoninfo">
-            <input id="address" placeholder="Adresse">
+            <input id="newAddress" placeholder="Adresse">
             <input id="additionalInfo" placeholder="Ekstra info">
-            <input id="zip" placeholder="Postnummer">
-            <input id="hobby" placeholder="Hobbyer">
+            <input id="newZip" placeholder="Postnummer">
+            <input id="newHobby" placeholder="Hobbyer">
             <a id="btnSend">Send</a>
         </div>
     </div>
@@ -98,10 +98,9 @@
 
 
 <!-- <script src="./App.js"></script> -->
-<script> var exports = {}; </script>
 <script type="module" src="index.js"></script>
 
-<script src="App.js"></script>
+<script type="module" src="App.js"></script>
 
 
 </body>
