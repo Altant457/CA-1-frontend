@@ -6,7 +6,6 @@ const showPersonList = (number) => {
     document.querySelector("#foundItems").innerHTML =
         `<h3><h3>`
     document.querySelector(".preload").style.display = "block"
-    // console.log(personFacade.getUserByPhone("12345678"))
     personFacade.getUserByPhone(number)
     .then (data => {
         let hobbyString
@@ -35,7 +34,7 @@ const showPersonList = (number) => {
             </div>
             `
         updateCollapsibles()
-        
+        fader()
         document.querySelector(".preload").style.display = "none"
         document.querySelector("#foundItems").innerHTML =
         `<h3>Fandt 1 resultat<h3>`
@@ -65,22 +64,75 @@ const updateCollapsibles = () => {
         });
     });
 };
-/* Metode til at folde person menu ud*/
-// var coll = document.getElementsByClassName("collapsible");
-//     var i;
-//
-// for (i = 0; i < coll.length; i++) {
-//     coll[i].addEventListener("click", function() {
-//         console.log(this);
-//         this.classList.toggle("active");
-//         var content = this.nextElementSibling;
-//         if (content.style.display === "block") {
-//             content.style.display = "none";
-//         } else {
-//             content.style.display = "block";
-//         }
-//     });
-// }
+
+
+
+const getUserByHobby = (hobbyName) => {
+    document.querySelector("#foundItems").innerHTML =
+    `<h3><h3>`
+    document.querySelector(".preload").style.display = "block"
+
+    personFacade.getUserByHobby(hobbyName)
+    .then(dataList => {
+    
+         
+        document.querySelector("#userList").innerHTML =
+        dataList.map ( person => {
+        let hobbyString
+        if (person["hobbies"].length > 0) {
+            hobbyString = person["hobbies"].map(hobby => `
+                <p><b style="color:blue">ID:</b> ${hobby["id"]}</p>
+                <p><b style="color:#be2edd">Name: </b>${hobby["name"]}</p>
+                <p><b style="color:green">Wikilink: </b>${hobby["wikiLink"]}</p>
+                `).join("<hr />")
+        } else {
+            hobbyString = "No hobbies"
+        }
+        return `
+        <div class="userBox" >
+            <button type="button" class="collapsible" ><b>ID#${person["id"]}</b> - ${person["firstName"]} ${person["lastName"]}</button>
+            <div class="content">
+                <p class="capName"><b>Name:</b> ${person["firstName"]} ${person["lastName"]}</p>
+                <p><b>Phone:</b> ${person["phones"][0]["number"]}</p>
+                <p class="capName"><b>Address:</b> ${person["fullAddress"]["street"] + ", " + person["fullAddress"]["cityInfo"]["city"]}</p>
+                <p><b>Zip:</b> ${person["fullAddress"]["cityInfo"]["zipCode"]}</p>
+                <p><b>Hobbies:</b>${hobbyString}</p>
+        </div>
+        `}
+        
+        ).join()
+
+
+        updateCollapsibles()
+    
+        document.querySelector(".preload").style.display = "none"
+        document.querySelector("#foundItems").innerHTML =
+        `<h3>Fandt ${dataList.length} resultat(er)<h3>`
+          
+
+    
+    
+    
+    })
+    
+        .catch(err => {
+    
+            if(err.status) {
+                err.fullError.then(e => console.log(e.msg))
+                
+            } else {
+                console.log("Network error")
+            }
+        })
+    
+}
+
+const fader = () =>
+{
+
+}
+
+    
 
 
 const checkedRadio = () => {
@@ -93,6 +145,10 @@ document.querySelector("#btnSearch").addEventListener('click', () => {
     if (command === "phone") {
         let number = document.querySelector("#bar").value
         showPersonList(number)
+    }
+    if (command === "hobby") {
+        let hobbyName = document.querySelector("#bar").value
+        getUserByHobby(hobbyName)
     }
 })
 
