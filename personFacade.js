@@ -77,6 +77,4 @@ const personFacade = {
     getCity
 };
 
-
-console.log("slutningen af personFacade")
 export default personFacade;

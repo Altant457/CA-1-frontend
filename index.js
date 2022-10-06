@@ -195,7 +195,7 @@ init();
 document.getElementById("all-content").style.display = "block";
 
 function hideAllShowOne(idToShow) {
-    console.log(idToShow)
+    //console.log(idToShow)
     document.getElementById("outer").style = "display:none";
     document.getElementById("outer2").style = "display:none";
     document.getElementById("vismig").style = "display:none";
@@ -203,7 +203,7 @@ function hideAllShowOne(idToShow) {
 }
 
 function hideAllButtonsShowOne(idToShow) {
-    console.log(idToShow)
+    //console.log(idToShow)
     document.getElementById("profile").style = "display:none";
     document.getElementById("back").style = "display:none";
     document.getElementById(idToShow).style = "display:block";
@@ -211,7 +211,7 @@ function hideAllButtonsShowOne(idToShow) {
 
 function menuItemClicked(evt) {
     const id = evt.target.id;
-    console.log(id)
+    //console.log(id)
     switch (id) {
         case "profile":
             hideAllShowOne("outer2");
@@ -242,7 +242,7 @@ function handleError(err) {
 }
 
 document.querySelector("#createProfile").addEventListener('click', () => {
-    console.log("der er hul igennem")
+    //console.log("der er hul igennem")
     let fName = document.querySelector("#fName").value
     // console.log(fName)
     let lName = document.querySelector("#lName").value
@@ -331,7 +331,7 @@ let nr = 1
 function fillHobbyList(id) {
     personFacade.getAllHobbies()
         .then(hobbies => {
-            console.log(id)
+            //console.log(id)
             document.querySelector(id).innerHTML += hobbies.map(hobby =>
                 `
                 <option id="${hobby["id"]}" value="${hobby["name"]}">${hobby["name"]}</option>
