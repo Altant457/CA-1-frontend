@@ -11,9 +11,11 @@ const getUserByPhone = (number) => {
             let hobbyString
             if (data["hobbies"].length > 0) {
                 hobbyString = data["hobbies"].map(hobby => `
-                <p><b style="color:blue">ID:</b> ${hobby["id"]}</p>
+<!--                <p><b style="color:blue">ID:</b> ${hobby["id"]}</p>-->
                 <p><b style="color:#be2edd">Name: </b>${hobby["name"]}</p>
-                <p><b style="color:green">Wikilink: </b>${hobby["wikiLink"]}</p>
+                <p><b style="color:blue">Category: </b>${hobby["category"]}</p>
+                <p><b style="color:#f9ca24">Type: </b>${hobby["type"]}</p>
+                <p><b style="color:green">Wikilink: </b><a href="${hobby["wikiLink"]}" target="_blank">${hobby["wikiLink"]}</a></p>
                 `).join("<hr />")
             } else {
                 hobbyString = "No hobbies"
@@ -23,12 +25,12 @@ const getUserByPhone = (number) => {
             document.querySelector("#userList").innerHTML =
                 `
             <div class="userBox">
-                <button type="button" class="collapsible" ><b>ID#${data["id"]}</b> - ${data["firstName"]} ${data["lastName"]}</button>
+                <button type="button" class="collapsible" id="collapsibleName"><b>ID#${data["id"]}</b> - ${data["firstName"]} ${data["lastName"]}</button>
                 <div class="content">
                     <p class="capName"><b>Name:</b> ${data["firstName"]} ${data["lastName"]}</p>
                     <p><b>Phone:</b> ${data["phones"][0]["number"]}</p>
-                    <p class="capName"><b>Address:</b> ${data["fullAddress"]["street"] + ", " + data["fullAddress"]["cityInfo"]["city"]}</p>
-                    <p><b>Zip:</b> ${data["fullAddress"]["cityInfo"]["zipCode"]}</p>
+                    <p class="capName"><b>Address:</b> ${data["fullAddress"]["street"]}</p>
+                    <p><b>Zip:</b> ${data["fullAddress"]["cityInfo"]["zipCode"]} <b>City:</b> ${data["fullAddress"]["cityInfo"]["city"]}</p>
                     <p><b>Hobbies:</b>${hobbyString}</p>
                 </div>
             </div>
@@ -307,18 +309,46 @@ const getHobbyData = (id = 1) => {
         })
 }
 
-personFacade.getAllHobbies()
-    .then(hobbies => {
-        document.querySelector("#newHobby").innerHTML += hobbies.map(hobby =>
-            `
-            <option id="${hobby["id"]}" value="${hobby["name"]}">${hobby["name"]}</option>
-            `
-        )
-    })
-    .catch(err => {
-        if (err.status) {
-            err.fullError.then(e => console.log(e.msg))
-        } else {
-            console.log("Network error")
-        }
-    })
+// personFacade.getAllHobbies()
+//     .then(hobbies => {
+//         document.querySelectorAll(".hobbyList").forEach(element => {
+//             element.innerHTML += hobbies.map(hobby =>
+//                 `
+//             <option id="${hobby["id"]}" value="${hobby["name"]}">${hobby["name"]}</option>
+//             `)
+//         })
+//     })
+let nr = 1
+
+function fillHobbyList(id) {
+    personFacade.getAllHobbies()
+        .then(hobbies => {
+            console.log(id)
+            document.querySelector(id).innerHTML += hobbies.map(hobby =>
+                `
+                <option id="${hobby["id"]}" value="${hobby["name"]}">${hobby["name"]}</option>
+                `)
+
+        })
+
+        .catch(err => {
+            if (err.status) {
+                err.fullError.then(e => console.log(e.msg))
+            } else {
+                console.log("Network gethobbies error")
+            }
+        })
+}
+
+
+document.querySelector("#moreHobbies").addEventListener("click", () => {
+    document.querySelector("#moreHobbiesRow").innerHTML +=
+        `<label for="newHobby${nr}" style="color: white">Choose hobby:</label>
+                <select id="newHobby${nr}" class="hobbyList" name="newHobby" style="width: 16em">
+                    <option id="0" value="false" disabled selected>Choose...</option>
+                </select>`
+    fillHobbyList(`#newHobby${nr}`)
+    nr += 1
+})
+
+fillHobbyList("#newHobby0")

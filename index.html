@@ -83,13 +83,13 @@
             <div class="hobbyItem"></div>
         </div>
 
-        <div class="box-bottom">    
+        <div class="box-bottom">
             <a href="#" class="gotopbtn">
                 <ion-icon name="arrow-up-outline" aria-hidden="true"></ion-icon>
                 <span class="visually-hidden">Go to the top of the page</span>
             </a>
         </div>
-        
+
     </div>
 
     <div id="outer2" style="display: none">
@@ -111,12 +111,22 @@
                 <input id="newZip" placeholder="Postnummer">
             </div>
             <div class="inputRow row5">
-                <label for="newHobby" style="color: white">Choose hobby:</label>
-                <select id="newHobby" name="newHobby" style="width: 16em">
+                <label for="newHobby0" style="color: white">Choose hobby:</label>
+                <select id="newHobby0" class="hobbyList" name="newHobby" style="width: 16em">
                     <option id="0" value="false" disabled selected>Choose...</option>
-
                 </select>
+                <button type="button" id="moreHobbies">+ add more hobbies</button>
+<!--                <div class="content" style="padding: 0px">-->
+<!--                    <label for="newHobby2" style="color: white">Choose hobby:</label>-->
+<!--                    <select id="newHobby2" class="hobbyList" name="newHobby" style="width: 16em">-->
+<!--                        <option id="02" value="false" disabled selected>Choose...</option>-->
+<!--                    </select>-->
+<!--                </div>-->
             </div>
+            <br>
+            <div class="inputRow row6" id="moreHobbiesRow">
+            </div>
+
             <button class="create-button" id="createProfile">
                 <span>Create new profile</span>
             </button>
@@ -127,7 +137,6 @@
     </div>
 
 </div>
-
 
 
 <div class="copyRights">
