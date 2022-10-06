@@ -1,73 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="./style.css" >
+<head>
+    <link rel="stylesheet" href="./style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="./App.js"></script>
     <title>BornAPI</title>
 </head>
-<body id="top">
+<body>
+
+<div id="all-content" style="display: none">
+    <!--    <ul id="menu" class="header">-->
+    <!--        <li><a href="" id="back">About</a></li>-->
+    <!--        <li><a href="" id="profile">Ex1</a></li>-->
+    <!--        <li><a href="" id="vis">Vis mig</a></li>-->
+    <!--    </ul>-->
     <div class="header">
         <h1>Born API</h1>
     </div>
-    <button class="navItem">
-      <h1>Add profile</h1>
-    </button>
-    <div class="outer">
-      <div class="container" id="container">
-          <input type="radio" name="s" id="person" checked onClick="changeText(id)">
-          <input type="radio" name="s" id="hobby" onClick="changeText(id)" >
-          <input type="radio" name="s" id="phone" onClick="changeText(id)">
-          <input type="radio" name="s" id="address" onClick="changeText(id)">
-          <input type="radio" name="s" id="zip" onClick="changeText(id)">
-          <nav>
-            <div class="slider"></div>
-            <label class="person" for="person">
-              <i class="fas fa-home"></i>Person
-            </label>
-            <label class="hobby" for="hobby">
-              <i class="fas fa-blog"></i>Hobby
-            </label>
-            <label class="phone" for="phone">
-              <i class="fas fa-code"></i>Phone
-            </label>
-            <label class="address" for="address">
-              <i class="fas fa-envelope"></i>Address
-            </label>
-            <label class="zip" for="zip">
-              <i class="fas fa-user"></i>Zip
-            </label>
-          </nav>
-          <div class="searchBar">
-            <div class="item1"></div>
-              <input class="bar" id="bar" placeholder="Skriv fulde navn"> 
-              <a class="btn-search" onclick="handleSearch()">Search</a>
-          </div>
-          <h3>Found 3 items</h3>
+    <div id="menu">
+        <button class="navItem btnChangeView" id="back" style="display: none">
+            Tilbage
+        </button>
+        <button class="navItem btnChangeView" id="profile" style="display: none">
+            Add profile
+        </button>
+    </div>
 
+    <div class="outer" id="outer" style="display: none">
+        <div class="container" id="container">
+            <input type="radio" name="s" id="person" value="person" checked>
+            <input type="radio" name="s" id="hobby" value="hobby">
+            <input type="radio" name="s" id="phone" value="phone">
+            <input type="radio" name="s" id="address" value="address">
+            <input type="radio" name="s" id="zip" value="zip">
+            <nav>
+                <div class="slider"></div>
+                <label class="person" for="person">
+                    <i class="fas fa-home"></i>Person
+                </label>
+                <label class="hobby" for="hobby">
+                    <i class="fas fa-blog"></i>Hobby
+                </label>
+                <label class="phone" for="phone">
+                    <i class="fas fa-code"></i>Phone
+                </label>
+                <label class="address" for="address">
+                    <i class="fas fa-envelope"></i>Address
+                </label>
+                <label class="zip" for="zip">
+                    <i class="fas fa-user"></i>Zip
+                </label>
+            </nav>
+            <div class="searchBar">
+                <div class="item1"></div>
+                <input class="bar" id="bar" placeholder="Skriv fulde navn">
+                <a class="btn-search" id="btnSearch">Search</a>
+            </div>
+
+            <!-- Loader symbol mens data fetches fra database -->
+            <div class="preload">
+                <label>Loading data ...</label>
+                <div class="emoji">🕐</div>
+            </div>
+            <div id="foundItems">
+                <!-- Her indsættes antal data hentet-->
+            </div>
         </div>
+
         <div class="resultList" id="userList">
-          <!-- <div class="listItemTop">
-            <p>navn</p>
-            <p>hobby</p>
-            <p>phone</p>
-            <p>address</p>
-            <p>zip</p>
-          </div> -->
+            <!-- Her indsættes person data -->
         </div>
+
+        <div class="requestMade">
+            <h2>Top Hobbies</h2>
+            <div class="hobbyItem"></div>
+            <div class="hobbyItem"></div>
+            <div class="hobbyItem"></div>
+            <div class="hobbyItem"></div>
+            <div class="hobbyItem"></div>
+            <div class="hobbyItem"></div>
+            <div class="hobbyItem"></div>
+        </div>
+
         <div class="box-bottom">
-          <a href="#top" class="btn-bottom">Return to top</a>
+            <a href="#" class="gotopbtn">
+                <ion-icon name="arrow-up-outline" aria-hidden="true"></ion-icon>
+                <span class="visually-hidden">Go to the top of the page</span>
+            </a>
         </div>
-      </div>
-      
-    
 
-  </body>
+    </div>
+
+    <div id="outer2" style="display: none">
+        <div id="add">
+            <div class="inputRow row1">
+                <input id="fName" placeholder="Fornavn">
+                <input id="lName" placeholder="Efternavn">
+            </div>
+            <div class="inputRow row2">
+                <input id="email" placeholder="E-mail">
+                <input id="newPhone" placeholder="Telefonnunmmer">
+            </div>
+            <div class="inputRow row3">
+                <input id="phoneDescription" placeholder="Telefoninfo">
+                <input id="newAddress" placeholder="Adresse">
+            </div>
+            <div class="inputRow row4">
+                <input id="additionalInfo" placeholder="Ekstra info">
+                <input id="newZip" placeholder="Postnummer">
+            </div>
+            <div class="inputRow row5">
+                <label for="newHobby0" style="color: white">Choose hobby:</label>
+                <select id="newHobby0" class="hobbyList" name="newHobby" style="width: 16em">
+                    <option id="0" value="false" disabled selected>Choose...</option>
+                </select>
+                <button type="button" id="moreHobbies">+ add more hobbies</button>
+<!--                <div class="content" style="padding: 0px">-->
+<!--                    <label for="newHobby2" style="color: white">Choose hobby:</label>-->
+<!--                    <select id="newHobby2" class="hobbyList" name="newHobby" style="width: 16em">-->
+<!--                        <option id="02" value="false" disabled selected>Choose...</option>-->
+<!--                    </select>-->
+<!--                </div>-->
+            </div>
+            <br>
+            <div id="moreHobbiesRow">
+            </div>
+
+            <button class="create-button" id="createProfile">
+                <span>Create new profile</span>
+            </button>
+        </div>
+    </div>
+    <div id="vismig" style="display: none">
+        <h3>VIS MIG</h3>
+    </div>
+
+</div>
 
 
-  </html>
+<div class="copyRights">
+    Copyright © 2022 Gruppe B. All rights reserved
+</div>
 
 
+<!-- <script src="./App.js"></script> -->
+<script type="module" src="index.js"></script>
 
+<script type="module" src="App.js"></script>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+</body>
+
+</html>

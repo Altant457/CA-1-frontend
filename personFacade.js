@@ -1,15 +1,26 @@
 const URL = "https://altantthewired.me/tomcat/CA1/api/ca1/";
 
-function getUserByNumber (number) {
+function getUserByPhone (number) {
     const options = makeOptions("GET")
-    return fetch(URL + "persons/phone/" + number, options)
+    return fetch(URL + "person/phone/" + number, options)
+    .then(handleHttpErrors)
+}
+function getUserByHobby (hobbyName) {
+    const options = makeOptions("GET")
+    return fetch(URL + "person/hobby/" + hobbyName, options)
     .then(handleHttpErrors)
 }
 
-function addUser() {
+function addUser(user) {
     const options = makeOptions("POST", user)
-    return fetch (URL, options)
+    return fetch (URL + "person/", options)
     .then(handleHttpErrors)
+}
+
+function getAllHobbies() {
+    const options = makeOptions("GET")
+    return fetch(URL + "hobby", options)
+        .then(handleHttpErrors)
 }
 
 function editUser(user, id) {
@@ -20,7 +31,19 @@ function editUser(user, id) {
 function deleteUser(id) {
     const options = makeOptions("DELETE")
     return fetch (`${URL}${id}`, options)
+        .then(handleHttpErrors)
+}
 
+function getCity(zipCode) {
+    const options = makeOptions("GET")
+    return fetch(URL + "city/" + zipCode)
+        .then(handleHttpErrors)
+}
+
+function getHobbyData(ids) {
+    const options = makeOptions("POST", ids)
+    return fetch(URL + "hobby/id/", options)
+        .then(handleHttpErrors)
 }
 
 const handleHttpErrors = (response) => {
@@ -43,12 +66,15 @@ const makeOptions = (method, body) => {
     }
     return opts
 }
-
 const personFacade = {
-    getUserByNumber,
+    getUserByPhone,
     addUser,
     editUser,
-    deleteUser
-}
+    deleteUser,
+    getUserByHobby,
+    getAllHobbies,
+    getHobbyData,
+    getCity
+};
 
 export default personFacade;
