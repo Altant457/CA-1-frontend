@@ -17,6 +17,12 @@ function addUser(user) {
     .then(handleHttpErrors)
 }
 
+function getAllHobbies() {
+    const options = makeOptions("GET")
+    return fetch(URL + "hobby", options)
+        .then(handleHttpErrors)
+}
+
 function editUser(user, id) {
     const options = makeOptions("PUT", user)
     return fetch (`${URL}${id}`, options)
@@ -25,7 +31,19 @@ function editUser(user, id) {
 function deleteUser(id) {
     const options = makeOptions("DELETE")
     return fetch (`${URL}${id}`, options)
+        .then(handleHttpErrors)
+}
 
+function getCity(zipCode) {
+    const options = makeOptions("GET")
+    return fetch(URL + "city/" + zipCode)
+        .then(handleHttpErrors)
+}
+
+function getHobbyData(id) {
+    const options = makeOptions("GET")
+    return fetch(URL + "hobby/id/" + id, options)
+        .then(handleHttpErrors)
 }
 
 const handleHttpErrors = (response) => {
@@ -53,7 +71,10 @@ const personFacade = {
     addUser,
     editUser,
     deleteUser,
-    getUserByHobby
+    getUserByHobby,
+    getAllHobbies,
+    getHobbyData,
+    getCity
 };
 
 

@@ -2,7 +2,7 @@ import "./personFacade.js"
 import personFacade from "./personFacade.js"
 import "./style.css"
 
-const showPersonList = (number) => {
+const getUserByPhone = (number) => {
     document.querySelector("#foundItems").innerHTML =
         `<h3><h3>`
     document.querySelector(".preload").style.display = "block"
@@ -33,14 +33,14 @@ const showPersonList = (number) => {
                 </div>
             </div>
             `
-        updateCollapsibles()
-        fader()
-        document.querySelector(".preload").style.display = "none"
-        document.querySelector("#foundItems").innerHTML =
-        `<h3>Fandt 1 resultat<h3>`
+            updateCollapsibles()
+            fader()
+            document.querySelector(".preload").style.display = "none"
+            document.querySelector("#foundItems").innerHTML =
+                `<h3>Fandt 1 resultat<h3>`
 
-    })
-    .catch(err => {
+        })
+        .catch(err => {
 
             if (err.status) {
                 err.fullError.then(e => console.log(e.msg))
@@ -66,29 +66,28 @@ const updateCollapsibles = () => {
 };
 
 
-
 const getUserByHobby = (hobbyName) => {
     document.querySelector("#foundItems").innerHTML =
-    `<h3><h3>`
+        `<h3><h3>`
     document.querySelector(".preload").style.display = "block"
 
     personFacade.getUserByHobby(hobbyName)
-    .then(dataList => {
-    
-         
-        document.querySelector("#userList").innerHTML =
-        dataList.map ( person => {
-        let hobbyString
-        if (person["hobbies"].length > 0) {
-            hobbyString = person["hobbies"].map(hobby => `
+        .then(dataList => {
+
+
+            document.querySelector("#userList").innerHTML =
+                dataList.map(person => {
+                        let hobbyString
+                        if (person["hobbies"].length > 0) {
+                            hobbyString = person["hobbies"].map(hobby => `
                 <p><b style="color:blue">ID:</b> ${hobby["id"]}</p>
                 <p><b style="color:#be2edd">Name: </b>${hobby["name"]}</p>
                 <p><b style="color:green">Wikilink: </b>${hobby["wikiLink"]}</p>
                 `).join("<hr />")
-        } else {
-            hobbyString = "No hobbies"
-        }
-        return `
+                        } else {
+                            hobbyString = "No hobbies"
+                        }
+                        return `
         <div class="userBox" >
             <button type="button" class="collapsible" ><b>ID#${person["id"]}</b> - ${person["firstName"]} ${person["lastName"]}</button>
             <div class="content">
@@ -98,41 +97,35 @@ const getUserByHobby = (hobbyName) => {
                 <p><b>Zip:</b> ${person["fullAddress"]["cityInfo"]["zipCode"]}</p>
                 <p><b>Hobbies:</b>${hobbyString}</p>
         </div>
-        `}
-        
-        ).join()
+        `
+                    }
+                ).join()
 
 
-        updateCollapsibles()
-    
-        document.querySelector(".preload").style.display = "none"
-        document.querySelector("#foundItems").innerHTML =
-        `<h3>Fandt ${dataList.length} resultat(er)<h3>`
-          
+            updateCollapsibles()
 
-    
-    
-    
-    })
-    
+            document.querySelector(".preload").style.display = "none"
+            document.querySelector("#foundItems").innerHTML =
+                `<h3>Fandt ${dataList.length} resultat(er)<h3>`
+
+
+        })
+
         .catch(err => {
-    
-            if(err.status) {
+
+            if (err.status) {
                 err.fullError.then(e => console.log(e.msg))
-                
+
             } else {
                 console.log("Network error")
             }
         })
-    
-}
-
-const fader = () =>
-{
 
 }
 
-    
+const fader = () => {
+
+}
 
 
 const checkedRadio = () => {
@@ -144,7 +137,7 @@ document.querySelector("#btnSearch").addEventListener('click', () => {
     let command = checkedRadio()
     if (command === "phone") {
         let number = document.querySelector("#bar").value
-        showPersonList(number)
+        getUserByPhone(number)
     }
     if (command === "hobby") {
         let hobbyName = document.querySelector("#bar").value
@@ -218,6 +211,7 @@ function hideAllShowOne(idToShow) {
     document.getElementById("vismig").style = "display:none";
     document.getElementById(idToShow).style = "display:block";
 }
+
 function hideAllButtonsShowOne(idToShow) {
     console.log(idToShow)
     document.getElementById("profile").style = "display:none";
@@ -243,65 +237,89 @@ function menuItemClicked(evt) {
     }
     evt.preventDefault();
 }
+
 document.getElementById("menu").onclick = menuItemClicked;
 hideAllShowOne("outer");
 hideAllButtonsShowOne("profile");
 
 
-
 document.querySelector("#createProfile").addEventListener('click', () => {
     console.log("der er hul igennem")
     let fName = document.querySelector("#fName").value
-    console.log(fName)
+    // console.log(fName)
     let lName = document.querySelector("#lName").value
-    console.log(lName)
+    // console.log(lName)
     let email = document.querySelector("#email").value
-    console.log(email)
+    // console.log(email)
     let newPhone = document.querySelector("#newPhone").value
-    console.log(newPhone)
+    // console.log(newPhone)
     let phoneDescription = document.querySelector("#phoneDescription").value
-    console.log(phoneDescription)
+    // console.log(phoneDescription)
     let newAddress = document.querySelector("#newAddress").value
-    console.log(newAddress)
+    // console.log(newAddress)
     let additionalInfo = document.querySelector("#additionalInfo").value
-    console.log(additionalInfo)
+    // console.log(additionalInfo)
     let newZip = document.querySelector("#newZip").value
-    console.log(newZip)
+    // console.log(newZip)
     let newHobby = document.querySelector("#newHobby").value
-    console.log(newHobby)
+    // console.log(newHobby)
 
-let user =
-    {
-        "email": "frontendtest@one.com",
-        "firstName": "Front-man",
-        "lastName": "Pat",
-        "phones": [
-            {
-                "number": "11011121",
-                "description": "arbejdstelefon"
+    let user =
+        {
+            "email": email,
+            "firstName": fName,
+            "lastName": lName,
+            "phones": [
+                {
+                    "number": newPhone,
+                    "description": phoneDescription
+                }
+            ],
+            "fullAddress": {
+                "street": newAddress,
+                "additionalInfo": additionalInfo
             }
-        ],
-        "fullAddress": {
-            "street": "teststreet01",
-            "additionalInfo": "th",
-            "cityInfo": {
-                "zipCode": "3720",
-                "city": "Aakirkeby"
-            }
-        },
-        "hobbies": [
-            {
-                "id": 404,
-                "name": "Hundesport",
-                "wikiLink": "https://en.wikipedia.org/wiki/Dog_sport",
-                "category": "Konkurrence",
-                "type": "Udendørs"
-            }
-        ]
+        }
+    if (newHobby !== "false") {
+        personFacade.getCity(newZip)
+            .then(city => {
+                user.fullAddress.cityInfo = city
+                let ddb = document.querySelector("#newHobby")
+                let hobbyID = ddb.options[ddb.selectedIndex].id
+                personFacade.getHobbyData(hobbyID)
+                    .then(hobby => {
+                        user.hobbies = [hobby]
+                        personFacade.addUser(user).then(() => {
+                            alert("Brugeren er oprettet")
+                        })
+                    })
+            })
     }
-
-personFacade.addUser(user).then(()=>{
-    alert("Brugeren oprettet")
 })
 
-})
+// document.querySelector("#newHobby").addEventListener("change", function () {
+//     getHobbyData(this.options[this.selectedIndex].id)
+// })
+
+const getHobbyData = (id = 1) => {
+    personFacade.getHobbyData(id)
+        .then(hobby => {
+            console.log(hobby)
+        })
+}
+
+personFacade.getAllHobbies()
+    .then(hobbies => {
+        document.querySelector("#newHobby").innerHTML += hobbies.map(hobby =>
+            `
+            <option id="${hobby["id"]}" value="${hobby["name"]}">${hobby["name"]}</option>
+            `
+        )
+    })
+    .catch(err => {
+        if (err.status) {
+            err.fullError.then(e => console.log(e.msg))
+        } else {
+            console.log("Network error")
+        }
+    })
