@@ -5,7 +5,8 @@
 3. run `npm run dev`
 
 ## Access it here
-TBD
+[CA-1 frontend](https://altantthewired.me)
+
 
 ## Backend repo
-You can get to the backend repo [here](https://github.com/Altant457/CA-1-backend)
+You can get to the backend repo [here](https://github.com/Altant457/CA-1-backend).
