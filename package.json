@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/hobby",
+    "build": "vite build --base=./",
     "preview": "vite preview"
   },
   "devDependencies": {
