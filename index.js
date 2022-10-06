@@ -229,7 +229,7 @@ function menuItemClicked(evt) {
     const id = evt.target.id;
     console.log(id)
     switch (id) {
-        case "addProfile":
+        case "profile":
             hideAllShowOne("outer2");
             hideAllButtonsShowOne("back");
             break;
@@ -244,6 +244,6 @@ function menuItemClicked(evt) {
     evt.preventDefault();
 }
 document.getElementById("menu").onclick = menuItemClicked;
-hideAllShowOne("outer2");
+hideAllShowOne("outer");
 hideAllButtonsShowOne("profile");
 

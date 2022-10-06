@@ -426,16 +426,33 @@ h3 {
   
 }
 
+.btnChangeView {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
 .inputRow {
   display: flex;
-  gap: 10px
+  gap: 15px
 
 }
+.inputRow input::placeholder {
+  color: white;
+  opacity: 0.6;
+}
+
+
 .inputRow>input {
-  height: 50px;
-  width: 300px;
+  height: 80px;
+  width: 350px;
   padding-left: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  font-size: 17px;
+  outline: none;
+  font-weight: bold;
+  color: white;
+  background: transparent;
+  border: solid 3px white
 }
 
 
@@ -458,7 +475,9 @@ h3 {
   padding: 0.8em 1.6em;
   font-size: 22px;
   overflow: hidden;
-  margin-top: 40px;
+  margin-top: 60px;
+  -webkit-transition: all .7s ease;
+  transition: all .7s ease;
 }
 .create-button:focus,
 .create-button:active {
@@ -490,8 +509,7 @@ h3 {
 .create-button:hover {
   background-color: #be2edd;
   font-weight: bolder;
-  -webkit-transition: all .7s ease;
-      transition: all .7s ease;
+ 
 }
 .create-button:hover:before,
 .create-button:focus:before {
