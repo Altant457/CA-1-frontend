@@ -13,7 +13,7 @@ function getUserByHobby (hobbyName) {
 
 function addUser(user) {
     const options = makeOptions("POST", user)
-    return fetch (URL, options)
+    return fetch (URL + "person/", options)
     .then(handleHttpErrors)
 }
 

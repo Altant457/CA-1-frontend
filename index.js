@@ -247,3 +247,61 @@ document.getElementById("menu").onclick = menuItemClicked;
 hideAllShowOne("outer");
 hideAllButtonsShowOne("profile");
 
+
+
+document.querySelector("#createProfile").addEventListener('click', () => {
+    console.log("der er hul igennem")
+    let fName = document.querySelector("#fName").value
+    console.log(fName)
+    let lName = document.querySelector("#lName").value
+    console.log(lName)
+    let email = document.querySelector("#email").value
+    console.log(email)
+    let newPhone = document.querySelector("#newPhone").value
+    console.log(newPhone)
+    let phoneDescription = document.querySelector("#phoneDescription").value
+    console.log(phoneDescription)
+    let newAddress = document.querySelector("#newAddress").value
+    console.log(newAddress)
+    let additionalInfo = document.querySelector("#additionalInfo").value
+    console.log(additionalInfo)
+    let newZip = document.querySelector("#newZip").value
+    console.log(newZip)
+    let newHobby = document.querySelector("#newHobby").value
+    console.log(newHobby)
+
+let user =
+    {
+        "email": "frontendtest@one.com",
+        "firstName": "Front-man",
+        "lastName": "Pat",
+        "phones": [
+            {
+                "number": "11011121",
+                "description": "arbejdstelefon"
+            }
+        ],
+        "fullAddress": {
+            "street": "teststreet01",
+            "additionalInfo": "th",
+            "cityInfo": {
+                "zipCode": "3720",
+                "city": "Aakirkeby"
+            }
+        },
+        "hobbies": [
+            {
+                "id": 404,
+                "name": "Hundesport",
+                "wikiLink": "https://en.wikipedia.org/wiki/Dog_sport",
+                "category": "Konkurrence",
+                "type": "Udendørs"
+            }
+        ]
+    }
+
+personFacade.addUser(user).then(()=>{
+    alert("Brugeren oprettet")
+})
+
+})
