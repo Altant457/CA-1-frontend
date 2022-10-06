@@ -43,13 +43,7 @@ const getUserByPhone = (number) => {
 
         })
         .catch(err => {
-
-            if (err.status) {
-                err.fullError.then(e => console.log(e.msg))
-
-            } else {
-                console.log("Network error")
-            }
+            handleError(err)
         })
 }
 
@@ -114,13 +108,7 @@ const getUserByHobby = (hobbyName) => {
         })
 
         .catch(err => {
-
-            if (err.status) {
-                err.fullError.then(e => console.log(e.msg))
-
-            } else {
-                console.log("Network error")
-            }
+            handleError(err)
         })
 
 }
@@ -245,6 +233,14 @@ hideAllShowOne("outer");
 hideAllButtonsShowOne("profile");
 
 
+function handleError(err) {
+    if (err.status) {
+        err.fullError.then(e => console.log(e.message))
+    } else {
+        console.log("Network error")
+    }
+}
+
 document.querySelector("#createProfile").addEventListener('click', () => {
     console.log("der er hul igennem")
     let fName = document.querySelector("#fName").value
@@ -293,10 +289,20 @@ document.querySelector("#createProfile").addEventListener('click', () => {
                 personFacade.getHobbyData(newHobbys)
                     .then(hobby => {
                         user.hobbies = hobby
-                        personFacade.addUser(user).then(() => {
-                            alert("Brugeren er oprettet")
-                        })
+                        personFacade.addUser(user)
+                            .then(() => {
+                                alert("Brugeren er oprettet")
+                            })
+                            .catch(err => {
+                                handleError(err)
+                            })
                     })
+                    .catch(err => {
+                        handleError(err);
+                    })
+            })
+            .catch(err => {
+                handleError(err)
             })
     }
 })
@@ -334,21 +340,17 @@ function fillHobbyList(id) {
         })
 
         .catch(err => {
-            if (err.status) {
-                err.fullError.then(e => console.log(e.msg))
-            } else {
-                console.log("Network gethobbies error")
-            }
+            handleError(err)
         })
 }
 
 
 document.querySelector("#moreHobbies").addEventListener("click", () => {
     document.querySelector("#moreHobbiesRow").innerHTML +=
-        `<label for="newHobby${nr}" style="color: white">Choose hobby:</label>
+        `<div class="inputRow"><label for="newHobby${nr}" style="color: white">Choose hobby:</label>
                 <select id="newHobby${nr}" class="hobbyList" name="newHobby" style="width: 16em">
                     <option id="0" value="false" disabled selected>Choose...</option>
-                </select>`
+                </select></div>`
     fillHobbyList(`#newHobby${nr}`)
     nr += 1
 })

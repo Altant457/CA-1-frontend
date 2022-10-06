@@ -289,6 +289,20 @@ h3 {
 
 }
 
+.collapsible {
+    background-color: white;
+    color: #444;
+    cursor: pointer;
+    padding: 20px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 20px;
+    margin-bottom: -10px;
+    text-transform: capitalize;
+}
+
 #collapsibleName {
     background-color: white;
     color: #444;
