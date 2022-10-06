@@ -526,6 +526,27 @@ h3 {
   }
 }
 
+.requestMade {
+  border: solid 1px white;
+  position: fixed;
+  height: 450px;
+  width: 250px;
+  bottom: 140px;
+  left: 90px;
+}
+.requestMade h2 {
+  color: white;
+  text-align: center;
+  margin: 10px 0
+}
+
+.hobbyItem {
+  background-color: white;
+  border: solid 4px #130f40;
+  height: 50px;
+  width: 248px;
+  margin-bottom: 2px;
+}
 .copyRights {
   position: fixed;
   bottom: 40px;
