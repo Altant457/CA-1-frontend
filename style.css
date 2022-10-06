@@ -253,6 +253,7 @@ h3 {
     flex-direction: row;
     width: 700px;
     height: 80px;
+
     font-size: 30px;
     margin-top: 0px;
     z-index: 2;
@@ -414,6 +415,96 @@ h3 {
     display:none;
 }
 
+#add {
+  display: flex;
+  flex-direction: column;
+
+}
+
+#add h3 {
+  text-align: center;
+  
+}
+
+.inputRow {
+  display: flex;
+  gap: 10px
+
+}
+.inputRow>input {
+  height: 50px;
+  width: 300px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+
+.create-button {
+  font-family: monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: #130f40;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: 80px;
+  position: relative;
+  transform: translate(-50%, -50%);
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 0.8em 1.6em;
+  font-size: 22px;
+  overflow: hidden;
+  margin-top: 40px;
+}
+.create-button:focus,
+.create-button:active {
+  outline: none;
+  
+}
+.create-button:before,
+.create-button:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  width: auto;
+  z-index: -1;
+  border-radius: inherit;
+  background: inherit;
+  animation: rainbow-border 1.5s linear infinite;
+}
+.create-button:before {
+  background: linear-gradient(90deg, #0ebeff, #ffdd40, #ae63e4, #47cf73, #0ebeff, #ffdd40, #ae63e4, #47cf73);
+  background-size: 200% 200%;
+}
+.create-button:after {
+  margin: 3px;
+}
+.create-button:hover {
+  background-color: #be2edd;
+  font-weight: bolder;
+  -webkit-transition: all .7s ease;
+      transition: all .7s ease;
+}
+.create-button:hover:before,
+.create-button:focus:before {
+  
+}
+@keyframes rainbow-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
 
 
 
