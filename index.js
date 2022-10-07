@@ -198,7 +198,6 @@ function hideAllShowOne(idToShow) {
     //console.log(idToShow)
     document.getElementById("outer").style = "display:none";
     document.getElementById("outer2").style = "display:none";
-    document.getElementById("vismig").style = "display:none";
     document.getElementById(idToShow).style = "display:block";
 }
 
@@ -326,7 +325,7 @@ const getHobbyData = (id = 1) => {
 //             `)
 //         })
 //     })
-let nr = 1
+
 
 function fillHobbyList(id) {
     personFacade.getAllHobbies()
@@ -345,14 +344,53 @@ function fillHobbyList(id) {
 }
 
 
+
+let clickNr = 0
+let formData
+let placeholder = "Choose ..."
+let hobbies = []
+let hobbyIds = []
+
 document.querySelector("#moreHobbies").addEventListener("click", () => {
-    document.querySelector("#moreHobbiesRow").innerHTML +=
-        `<div class="inputRow"><label for="newHobby${nr}" style="color: white">Choose hobby:</label>
+    hobbies = []
+    hobbyIds= []
+    console.log(formData)
+    document.querySelectorAll(".hobbyList").forEach(element => {
+        if (element.value !== "false") {
+            hobbies.push(element.options[element.selectedIndex].value)
+            hobbyIds.push(element.options[element.selectedIndex].id)
+            console.log("hobbylist length: " + hobbies.length)
+
+        }
+    })
+    clickNr += 1
+    let rowNr = 7
+    let nr = 1
+    let hobbyListNr = 1
+    formData = ""
+    console.log("clickNr: " + clickNr)
+    for (let i = 1; i < clickNr; i++) {
+        console.log(`hobbyname in for loop: ${hobbies[hobbyListNr]}`)
+        formData += `<div class="inputRow row${rowNr}">
+<label for="newHobby${nr}" style="color: white">Choose hobby:</label>
                 <select id="newHobby${nr}" class="hobbyList" name="newHobby" style="width: 16em">
-                    <option id="0" value="false" disabled selected>Choose...</option>
+                    <option id="${hobbyIds[hobbyListNr]}" disabled selected>${hobbies[hobbyListNr]}</option>
                 </select></div>`
+        nr += 1
+        hobbyListNr += 1
+        rowNr += 1
+    }
+    formData += `<div class="inputRow row${rowNr}">
+<label for="newHobby${nr}" style="color: white">Choose hobby:</label>
+                <select id="newHobby${nr}" class="hobbyList" name="newHobby" style="width: 16em">
+                    <option id="0" disabled selected>${placeholder}</option>
+                </select></div>`
+
+
+    document.querySelector(`#moreHobbiesRow`).innerHTML = formData
+
     fillHobbyList(`#newHobby${nr}`)
-    nr += 1
+
 })
 
 fillHobbyList("#newHobby0")
