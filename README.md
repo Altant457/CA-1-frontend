@@ -5,7 +5,7 @@
 3. run `npm run dev`
 
 ## Access it here
-[CA-1 frontend](https://altantthewired.me)
+[CA-1 frontend](https://altantthewired.me/hobby)
 
 
 ## Backend repo
